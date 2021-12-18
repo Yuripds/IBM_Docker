@@ -17,7 +17,7 @@ app.post('/', async function(request, response){
       "url": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/fffa018a-9828-4bf0-a2f2-d74786b33d19/v1/workspaces/ad2ee409-dfa6-423c-a3da-89d2ca36e931/message",
       "skillId": "ad2ee409-dfa6-423c-a3da-89d2ca36e931",
       "apiKey": "hi4wVBb6THX7zFkMRQqeSiWmlMAH-hg34BMyiTbZDaH0",
-      "submitConfirmation": false
+      "submitConfirmation": true
     }
     url_os = "http://172.21.188.211:3000/submit"
 
