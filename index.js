@@ -4,42 +4,22 @@ const axios  = require('axios')
 const app = express();
 app.use(express.json())
 
-let config = {
-    headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Accept": "application/json" 
-    },
-
-    params:{
-        "grant_type":"urn:ibm:params:oauth:grant-type:apikey",
-        "apikey": "your_apikey"
-    }
-  }
-
 app.get('/', (_, response) =>{
     return response.send("'I'm Working")
 })
 
-
-
-function getToken(){
-    url = "https://iam.cloud.ibm.com/identity/token"
-    
-    token = axios.post(url, null, config)
-    return token
-}
-
-
 app.post('/', async function(request, response){
 
     let tokenResponse = await getToken()
-    data = {
-       email_addr: "your_email@email.com",
-       wml_url: "wml_url",
-       iam_token: String(tokenResponse.data.access_token),
-       submit_confirmation: true,
+    data ={
+      "email": "yuripedro3@gmail.com",
+      "assistantId": "1eab40d3-95b0-4593-a8c9-afc6ce1a6458",
+      "url": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/fffa018a-9828-4bf0-a2f2-d74786b33d19/v1/workspaces/ad2ee409-dfa6-423c-a3da-89d2ca36e931/message",
+      "skillId": "ad2ee409-dfa6-423c-a3da-89d2ca36e931",
+      "apiKey": "hi4wVBb6THX7zFkMRQqeSiWmlMAH-hg34BMyiTbZDaH0",
+      "submitConfirmation": false
     }
-    url_os = "http://172.21.86.186:5000/submit"
+    url_os = "http://172.21.188.211:3000/submit"
 
     axios.post(url_os, data).then(function(response){
         console.log(response)
